@@ -13,6 +13,12 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
+    elif event == "Herb Create":
+        print("Herb Create")
+    elif event == "Add":
+        print("Herb Create")
+    elif event == "Delete":
+        print("Delete")
 
 
 
