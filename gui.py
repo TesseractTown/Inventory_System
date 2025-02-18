@@ -2,6 +2,8 @@ import PySimpleGUI as sg
 import HerbManager
 import main
 
+herbManager = HerbManager.HerbManager()
+
 layout = [
     [sg.Text("Herb Inventory")],
     [sg.Button("Herb Create")],
@@ -16,7 +18,7 @@ while True:
     if event == sg.WIN_CLOSED:
         break
     elif event == "Herb Create":
-        create_herbs()
+        herbManager.create_herbs()
     elif event == "Add":
         print("Herb Create")
     elif event == "Delete":
