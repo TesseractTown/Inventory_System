@@ -23,7 +23,9 @@ class HerbManager:
         edit_herb_name = input("yada")
 
     def get_dict_keys(self):
-        for key, value in dict.items(self.herb_dictionary):
-                      herb_list = key
+        print(self.herb_dictionary)
+        herb_list = []
+        for key, value in self.herb_dictionary.items():
+            herb_list.append(key)
 
-        print(herb_list)
+        return herb_list
