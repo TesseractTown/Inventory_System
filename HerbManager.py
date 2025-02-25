@@ -17,7 +17,15 @@ class HerbManager:
  
 
     def add_herbs(self):
-        edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
+      edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
+      edit_herb_value = sg.popup_get_text("How Many To Add?", title="Textbox")
+      self.herb_dictionary[edit_herb_name] + edit_herb_value
+     
+      for key, value in dict.items(self.herb_dictionary):
+            print(key, value)
+
+
+
 
     def remove_herb_amount(self):
         edit_herb_name = input("yada")
@@ -29,3 +37,11 @@ class HerbManager:
             herb_list.append(key)
 
         return herb_list
+
+
+    def get_dict_values(self):
+        print(self.herb_dictionary)
+        herb_list_values = []
+        for value, value in self.herb_dictionary.items():
+            herb_list_values.append(value)
+        return herb_list_values
