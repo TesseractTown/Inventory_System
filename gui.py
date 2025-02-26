@@ -50,9 +50,12 @@ class GuiLayouts:
 
             elif event == "Add":
                 herbManager.add_herbs()
+                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
+                
 
             elif event == "Delete":
                 print("Delete")
 
             elif event == "Subtract":
-                print("Subtract")
+                herbManager.remove_herb_amount()
+                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()

@@ -7,7 +7,7 @@ class HerbManager:
     def create_herbs(self):
         
         herb_name = sg.popup_get_text("Enter What Herb You Want to Create: ", title= "Textbox")
-        how_many_herbs = sg.popup_get_text("Enter How Many of That Herb You Have: ", title="Textbox")
+        how_many_herbs = int(sg.popup_get_text("Enter How Many of That Herb You Have: ", title="Textbox"))
 
         self.herb_dictionary[herb_name] = how_many_herbs
 
@@ -18,19 +18,16 @@ class HerbManager:
 
     def add_herbs(self):
       edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
-      edit_herb_value = sg.popup_get_text("How Many To Add?", title="Textbox")
-      self.herb_dictionary[edit_herb_name] += int(edit_herb_value)
-     
-      for key, value in dict.items(self.herb_dictionary):
-            print(key, value)
-
-    
-
-
-
+      edit_herb_value = int(sg.popup_get_text("How Many To Add?", title="Textbox"))
+      self.herb_dictionary[edit_herb_name] += edit_herb_value
 
     def remove_herb_amount(self):
-        edit_herb_name = input("yada")
+     
+      edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
+      edit_herb_value = int(sg.popup_get_text("How Many To Subtract?", title="Textbox"))
+      self.herb_dictionary[edit_herb_name] -= edit_herb_value
+      if self.herb_dictionary[edit_herb_name] <= 0:
+          self.herb_dictionary[edit_herb_name] = 0
 
     def get_dict_keys(self):
         print(self.herb_dictionary)
