@@ -13,8 +13,6 @@ class HerbManager:
 
         for key, value in dict.items(self.herb_dictionary):
             print(key, value)
-        
- 
 
     def add_herbs(self):
       edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
@@ -29,11 +27,17 @@ class HerbManager:
       if self.herb_dictionary[edit_herb_name] <= 0:
           self.herb_dictionary[edit_herb_name] = 0
 
+    def delete_herb(self):
+        
+      edit_herb_name = sg.popup_get_text("What Herb Do You Want to Delete?", title="Textbox")
+      del self.herb_dictionary[edit_herb_name]
+      
+
     def get_dict_keys(self):
         print(self.herb_dictionary)
         herb_list = []
         for key, value in self.herb_dictionary.items():
-            herb_list.append(key)
+            herb_list.append((key,value))
 
         return herb_list
 
