@@ -33,10 +33,10 @@ class GuiLayouts:
             [sg.Text("Herb Inventory")],
             [sg.Button("Herb Create"), sg.Button("Delete")],
             [GuiLayouts.list_box, GuiLayouts.list_box_recipes],
-            [sg.Button("Add"), sg.Button("Subtract"), sg.Button("Create Recipe")],
+            [sg.Button("Add"), sg.Button("Subtract"), sg.Button("Create Recipe"),sg.Button("Delete Recipe")],
         ]
 
-        GuiLayouts.window = sg.Window("Herb Inventory", layout, finalize=True)
+        GuiLayouts.window = sg.Window("Herb Inventory", layout, finalize=False)
 
         while True:
             event, values = GuiLayouts.window.read()
@@ -62,4 +62,6 @@ class GuiLayouts:
             elif event == "Create Recipe":
                 herbRecipies.create_herb_recipe()
                 GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
-                print (herbRecipies.get_dict_keys_recipe())
+            elif event == "Delete Recipe":
+                herbRecipies.delete_herb_recipe() 
+                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()

@@ -11,8 +11,7 @@ class HerbManager:
 
         self.herb_dictionary[herb_name] = how_many_herbs
 
-       # for key, value in dict.items(self.herb_dictionary):
-          #  print(key, value)
+
 
     def add_herbs(self):
       edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
