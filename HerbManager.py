@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+
 
 class HerbManager:
     def __init__(self):
@@ -6,29 +6,29 @@ class HerbManager:
 
     def create_herbs(self):
         
-        herb_name = sg.popup_get_text("Enter What Herb You Want to Create: ", title= "Textbox")
-        how_many_herbs = int(sg.popup_get_text("Enter How Many of That Herb You Have: ", title="Textbox"))
+        herb_name = ("Enter What Herb You Want to Create: ")
+        how_many_herbs = int(("Enter How Many of That Herb You Have: "))
 
         self.herb_dictionary[herb_name] = how_many_herbs
 
 
 
     def add_herbs(self):
-      edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
-      edit_herb_value = int(sg.popup_get_text("How Many To Add?", title="Textbox"))
+      edit_herb_name = ("What Herb Do You Want to Change?")
+      edit_herb_value = int(("How Many To Add?"))
       self.herb_dictionary[edit_herb_name] += edit_herb_value
 
     def remove_herb_amount(self):
      
-      edit_herb_name = sg.popup_get_text("What Herb Do You Want to Change?", title="Textbox")
-      edit_herb_value = int(sg.popup_get_text("How Many To Subtract?", title="Textbox"))
+      edit_herb_name = ("What Herb Do You Want to Change?")
+      edit_herb_value = int(("How Many To Subtract?"))
       self.herb_dictionary[edit_herb_name] -= edit_herb_value
       if self.herb_dictionary[edit_herb_name] <= 0:
           self.herb_dictionary[edit_herb_name] = 0
 
     def delete_herb(self):
         
-      edit_herb_name = sg.popup_get_text("What Herb Do You Want to Delete?", title="Textbox")
+      edit_herb_name = ("What Herb Do You Want to Delete?")
       del self.herb_dictionary[edit_herb_name]
       
 

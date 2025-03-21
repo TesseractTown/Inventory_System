@@ -1,4 +1,10 @@
-import PySimpleGUI as sg
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.image import Image
+from kivy.app import App
+from kivy.uix.label import Label
+from kivy.uix.gridlayout import GridLayout
 import HerbManager
 import main
 import HerbRecipies
@@ -6,62 +12,16 @@ import HerbRecipies
 herbManager = HerbManager.HerbManager()
 herbRecipies = HerbRecipies.HerbRecipes()
 
-class GuiLayouts:
-    def home_page_layout():
+class GuiLayouts(App):
+    def home_page_layout(self):
+       layout = BoxLayout(orientation='vertical')
+       b1 = Button(text='button 1')
+       b2 = Button(text='button 2')
 
+       layout.add_widget(b1)
+       layout.add_widget(b2)
 
-        GuiLayouts.herb_names = herbManager.get_dict_keys()
-        GuiLayouts.recipe_names = herbRecipies.get_dict_keys_recipe()
-        
+       return layout
 
-        GuiLayouts.list_box = sg.Listbox(GuiLayouts.herb_names,
-                                         size= (20,4),
-                                         font=("Calibri", 14),
-                                         expand_y=True,
-                                         enable_events=True,
-                                         key="list")
-
-
-        GuiLayouts.list_box_recipes = sg.Listbox(GuiLayouts.recipe_names,
-                                         size= (20,4),
-                                         font=("Calibri", 14),
-                                         expand_y=True,
-                                         enable_events=True,
-                                        )
-        
-        layout = [
-            [sg.Text("Herb Inventory")],
-            [sg.Button("Herb Create"), sg.Button("Delete")],
-            [GuiLayouts.list_box, GuiLayouts.list_box_recipes],
-            [sg.Button("Add"), sg.Button("Subtract"), sg.Button("Create Recipe"),sg.Button("Delete Recipe")],
-        ]
-
-        GuiLayouts.window = sg.Window("Herb Inventory", layout, finalize=False)
-
-        while True:
-            event, values = GuiLayouts.window.read()
-            if event == sg.WIN_CLOSED:
-                break
-            elif event == "Herb Create":
-       
-                herbManager.create_herbs()
-                GuiLayouts.window[GuiLayouts.home_page_layout()].update()
-
-            elif event == "Add":
-                herbManager.add_herbs()
-                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
-                
-
-            elif event == "Delete":
-                herbManager.delete_herb()
-                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
-
-            elif event == "Subtract":
-                herbManager.remove_herb_amount()
-                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
-            elif event == "Create Recipe":
-                herbRecipies.create_herb_recipe()
-                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
-            elif event == "Delete Recipe":
-                herbRecipies.delete_herb_recipe() 
-                GuiLayouts.window[GuiLayouts.home_page_layout()].refresh()
+    
+GuiLayouts().run()
