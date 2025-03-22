@@ -1,15 +1,14 @@
+import gui
 
+Guiobj = gui
 
 class HerbManager:
     def __init__(self):
         self.herb_dictionary = {}
 
     def create_herbs(self):
-        
-        herb_name = ("Enter What Herb You Want to Create: ")
-        how_many_herbs = int(("Enter How Many of That Herb You Have: "))
 
-        self.herb_dictionary[herb_name] = how_many_herbs
+        self.herb_dictionary[Guiobj.herb_name] = Guiobj.how_many_herbs
 
 
 
