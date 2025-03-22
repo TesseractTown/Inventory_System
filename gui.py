@@ -21,48 +21,28 @@ herbRecipies = HerbRecipies.HerbRecipes()
 createHerbLayout = GridLayout()
 createHerbLayout.cols = 1
 createHerbLayout.add_widget(Label(text=("What is the name of the Herb?")))
-createHerbLayout.add_widget(herbName = TextInput(multiline= False,
+herb_name = TextInput(multiline= False,
                     padding_y= (20,20),
-                    size_hint= (0.5, 0.5)))
+                    size_hint= (0.5, 0.5))
+createHerbLayout.add_widget(herb_name)
 
 createHerbLayout.add_widget(Label(text=("How Many of this Herb Do you Have?")))
-createHerbLayout.add_widget(how_many_herbs = TextInput(multiline= False,
+how_many_herbs= TextInput(multiline= False,
                     padding_y= (20,20),
-                    size_hint= (0.5, 0.5)))
-createHerbLayout.add_widget(done_button = Button(
+                    size_hint= (0.5, 0.5))
+createHerbLayout.add_widget(how_many_herbs)
+done_button= Button(
 
             text = "Done",
             size_hint= (0.2,0.1),
             bold= True,
             background_color ='#00FFCE',
 )
-)
-createHerbLayout.done_button.bind(on_press=herbManagerobj.create_herbs())
-
-
-#DELETE HERB LAYOUT
-
-deleteHerbLayout= GridLayout()
-deleteHerbLayout.cols =1 
-deleteHerbLayout.add_widget(Label(text=("What is the name of the Herb you would like to delete?")))
-deleteHerbLayout.add_widget(TextInput(multiline= False,
-                    padding_y= (20,20),
-                    size_hint= (0.5, 0.5)))
-deleteHerbLayout.add_widget(Button(
-
-            text = "Done",
-            size_hint= (0.2,0.1),
-            bold= True,
-            background_color ='#00FFCE',
-))
+createHerbLayout.add_widget(done_button)
+done_button.bind(on_press=herbManagerobj.create_herbs(herb_name, how_many_herbs))
 createHerbPopup= Popup(
 title="Create Herb",
 content=createHerbLayout
-)
-
-deleteHerbPopup=Popup(
-    title="Delete Herb",
-    content=deleteHerbLayout
 )
 
 class GuiLayouts(App):
@@ -96,7 +76,7 @@ class GuiLayouts(App):
             bold= True,
             background_color ='#00FFCE',
         )
-        self.deleteHerb.bind(on_press=deleteHerbPopup.open)
+        #self.deleteHerb.bind(on_press=deleteHerbPopup.open)
         self.window.add_widget(self.deleteHerb)
 
 
