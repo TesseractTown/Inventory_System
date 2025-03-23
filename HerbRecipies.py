@@ -1,8 +1,7 @@
 
-import HerbManager
-import gui
+# import HerbManager
 
-herbManager = HerbManager.HerbManager()
+# herbManager = HerbManager.HerbManager()
 
 class HerbRecipes:
     def __init__(self):

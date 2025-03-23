@@ -6,6 +6,8 @@ class HerbManager:
     def create_herbs(self, herb_name, how_many_herbs):
 
         self.herb_dictionary[herb_name] = how_many_herbs
+        print(herb_name, how_many_herbs)
+        print(self.herb_dictionary[herb_name] )
 
 
 
